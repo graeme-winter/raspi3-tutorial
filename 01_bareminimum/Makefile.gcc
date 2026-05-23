@@ -31,7 +31,7 @@ start.o: start.S
 	aarch64-none-elf-gcc $(CFLAGS) -c start.S -o start.o
 
 kernel8.img: start.o
-	aarch64-none-elf-ld -nostdlib -nostartfiles start.o -T link.ld -o kernel8.elf
+	aarch64-none-elf-gcc -nostdlib -nostartfiles start.o -T link.ld -o kernel8.elf
 	aarch64-none-elf-objcopy -O binary kernel8.elf kernel8.img
 
 clean:
