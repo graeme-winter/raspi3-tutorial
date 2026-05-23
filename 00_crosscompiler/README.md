@@ -147,20 +147,20 @@ probably also want to add this directory to your PATH environment variable.
 
 ```sh
 $ ls /usr/local/cross-compiler/bin
-aarch64-elf-addr2line  aarch64-elf-elfedit    aarch64-elf-gcc-ranlib  aarch64-elf-ld       aarch64-elf-ranlib
-aarch64-elf-ar         aarch64-elf-gcc        aarch64-elf-gcov        aarch64-elf-ld.bfd   aarch64-elf-readelf
-aarch64-elf-as         aarch64-elf-gcc-7.2.0  aarch64-elf-gcov-dump   aarch64-elf-nm       aarch64-elf-size
-aarch64-elf-c++filt    aarch64-elf-gcc-ar     aarch64-elf-gcov-tool   aarch64-elf-objcopy  aarch64-elf-strings
-aarch64-elf-cpp        aarch64-elf-gcc-nm     aarch64-elf-gprof       aarch64-elf-objdump  aarch64-elf-strip
+aarch64-none-elf-addr2line  aarch64-none-elf-elfedit    aarch64-none-elf-gcc-ranlib  aarch64-none-elf-ld       aarch64-none-elf-ranlib
+aarch64-none-elf-ar         aarch64-none-elf-gcc        aarch64-none-elf-gcov        aarch64-none-elf-ld.bfd   aarch64-none-elf-readelf
+aarch64-none-elf-as         aarch64-none-elf-gcc-7.2.0  aarch64-none-elf-gcov-dump   aarch64-none-elf-nm       aarch64-none-elf-size
+aarch64-none-elf-c++filt    aarch64-none-elf-gcc-ar     aarch64-none-elf-gcov-tool   aarch64-none-elf-objcopy  aarch64-none-elf-strings
+aarch64-none-elf-cpp        aarch64-none-elf-gcc-nm     aarch64-none-elf-gprof       aarch64-none-elf-objdump  aarch64-none-elf-strip
 ```
 
 The executables we are interested in:
- - aarch64-elf-as - the assembler
- - aarch64-elf-gcc - the C compiler
- - aarch64-elf-ld - the linker
- - aarch64-elf-objcopy - to convert ELF executable into IMG format
- - aarch64-elf-objdump - utility to disassemble executables (for debugging)
- - aarch64-elf-readelf - an useful utility to dump sections and segments in executables (for debugging)
+ - aarch64-none-elf-as - the assembler
+ - aarch64-none-elf-gcc - the C compiler
+ - aarch64-none-elf-ld - the linker
+ - aarch64-none-elf-objcopy - to convert ELF executable into IMG format
+ - aarch64-none-elf-objdump - utility to disassemble executables (for debugging)
+ - aarch64-none-elf-readelf - an useful utility to dump sections and segments in executables (for debugging)
 
 If you have all of the above six executables and you can also run them without error messages, congrats!
 You have all the tools needed, you can start to work with my tutorials!

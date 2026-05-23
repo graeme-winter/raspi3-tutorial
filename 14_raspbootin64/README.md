@@ -23,7 +23,7 @@ way I can assure that link address 0x80000 - 1024 will be suitable, and our load
 the load address. You can check that with:
 
 ```sh
-$ aarch64-elf-readelf -s kernel8.elf | grep __bss_end
+$ aarch64-none-elf-readelf -s kernel8.elf | grep __bss_end
     27: 000000000007ffb0     0 NOTYPE  GLOBAL DEFAULT    4 __bss_end
 ```
 

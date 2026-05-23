@@ -40,7 +40,7 @@ Két új object-et adtam hozzá, amik a psf és sfn fájlokból generálódnak. 
 behúzni és hivatkozni C forrásból. A következő parancsot használtam a cimke nevének kiderítésére:
 
 ```sh
-$ aarch64-elf-readelf -s font_psf.o
+$ aarch64-none-elf-readelf -s font_psf.o
         ... kimenet törölve az átláthatóság miatt ...
      2: 0000000000000820     0 NOTYPE  GLOBAL DEFAULT    1 _binary_font_psf_end
      3: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT    1 _binary_font_psf_start

@@ -24,7 +24,7 @@ Ajánlott a kódunkat minimalizálni, mivel úgyis figyelmen kívül hagyja az �
 0x80000 - 1024 megfelelő link cím lesz, ahol a kódunk nem nyúlik bele a load címbe. Ezt a következő paranccsal ellenőrizheted:
 
 ```sh
-$ aarch64-elf-readelf -s kernel8.elf | grep __bss_end
+$ aarch64-none-elf-readelf -s kernel8.elf | grep __bss_end
     27: 000000000007ffb0     0 NOTYPE  GLOBAL DEFAULT    4 __bss_end
 ```
 

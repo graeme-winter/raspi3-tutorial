@@ -121,20 +121,20 @@ ott találnod. Meggyőződésem, hogy ezt a mappát hozzá akarod adni a PATH-od
 
 ```sh
 $ ls /usr/local/cross-compiler/bin
-aarch64-elf-addr2line  aarch64-elf-elfedit    aarch64-elf-gcc-ranlib  aarch64-elf-ld       aarch64-elf-ranlib
-aarch64-elf-ar         aarch64-elf-gcc        aarch64-elf-gcov        aarch64-elf-ld.bfd   aarch64-elf-readelf
-aarch64-elf-as         aarch64-elf-gcc-7.2.0  aarch64-elf-gcov-dump   aarch64-elf-nm       aarch64-elf-size
-aarch64-elf-c++filt    aarch64-elf-gcc-ar     aarch64-elf-gcov-tool   aarch64-elf-objcopy  aarch64-elf-strings
-aarch64-elf-cpp        aarch64-elf-gcc-nm     aarch64-elf-gprof       aarch64-elf-objdump  aarch64-elf-strip
+aarch64-none-elf-addr2line  aarch64-none-elf-elfedit    aarch64-none-elf-gcc-ranlib  aarch64-none-elf-ld       aarch64-none-elf-ranlib
+aarch64-none-elf-ar         aarch64-none-elf-gcc        aarch64-none-elf-gcov        aarch64-none-elf-ld.bfd   aarch64-none-elf-readelf
+aarch64-none-elf-as         aarch64-none-elf-gcc-7.2.0  aarch64-none-elf-gcov-dump   aarch64-none-elf-nm       aarch64-none-elf-size
+aarch64-none-elf-c++filt    aarch64-none-elf-gcc-ar     aarch64-none-elf-gcov-tool   aarch64-none-elf-objcopy  aarch64-none-elf-strings
+aarch64-none-elf-cpp        aarch64-none-elf-gcc-nm     aarch64-none-elf-gprof       aarch64-none-elf-objdump  aarch64-none-elf-strip
 ```
 
 Amik ezek közül számunkra érdekesek:
- - aarch64-elf-as - az assembler
- - aarch64-elf-gcc - a C fordító
- - aarch64-elf-ld - a linker
- - aarch64-elf-objcopy - az ELF futtathatók IMG-re való konvertálásához kell
- - aarch64-elf-objdump - futtathatók disassemblálására (debuggoláshoz)
- - aarch64-elf-readelf - hasznos eszköz a futtathatókban lévő szekciók és szegmensek listázásra (debuggoláshoz)
+ - aarch64-none-elf-as - az assembler
+ - aarch64-none-elf-gcc - a C fordító
+ - aarch64-none-elf-ld - a linker
+ - aarch64-none-elf-objcopy - az ELF futtathatók IMG-re való konvertálásához kell
+ - aarch64-none-elf-objdump - futtathatók disassemblálására (debuggoláshoz)
+ - aarch64-none-elf-readelf - hasznos eszköz a futtathatókban lévő szekciók és szegmensek listázásra (debuggoláshoz)
 
 Ha mind a hat fenti futtahatót látod, és hibaüzenet nélkül le is futnak, gratulálok!
 Minden eszköz a rendelkezésedre áll, elkezdheted az oktatóanyagot!
