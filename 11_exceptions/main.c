@@ -23,26 +23,25 @@
  *
  */
 
-#include "uart.h"
 #include "mmu.h"
+#include "uart.h"
 
-void main()
-{
-    unsigned int r;
+void main() {
+  unsigned int r;
 
-    // set up serial console
-    uart_init();
-    
-    // set up paging
-    mmu_init();
+  // set up serial console
+  uart_init();
 
-    // generate a Data Abort with a bad address access
-    r=*((volatile unsigned int*)0xFFFFFFFFFF000000);
-    // make gcc happy about unused variables :-)
-    r++;
+  // set up paging
+  mmu_init();
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // generate a Data Abort with a bad address access
+  r = *((volatile unsigned int *)0xFFFFFFFFFF000000);
+  // make gcc happy about unused variables :-)
+  r++;
+
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

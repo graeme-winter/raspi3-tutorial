@@ -23,22 +23,21 @@
  *
  */
 
-#include "uart.h"
 #include "initrd.h"
+#include "uart.h"
 
 // import our bitchunk from rd.o
 extern volatile unsigned char _binary_ramdisk_start;
 
-void main()
-{
-    // set up serial console
-    uart_init();
+void main() {
+  // set up serial console
+  uart_init();
 
-    // list contents of an archive
-    initrd_list((char*)&_binary_ramdisk_start);
+  // list contents of an archive
+  initrd_list((char *)&_binary_ramdisk_start);
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

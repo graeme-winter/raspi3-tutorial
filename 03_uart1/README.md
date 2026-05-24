@@ -32,3 +32,7 @@ First, we have to call the uart initialization code. Then, it'll return "Hello W
 serial cable, you should see it on minicom's screen. After that every character typed in minicom will be
 echoed back. If you haven't turned off local echo, that means you'll see every pressed key twice.
 
+Note
+----
+
+`config.txt` may need `core_freq=250` adding to have this work correctly.

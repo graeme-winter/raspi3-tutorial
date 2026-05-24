@@ -25,19 +25,18 @@
 
 #include "uart.h"
 
-void main()
-{
-    // set up serial console
-    uart_init();
-    
-    // test our printf implementation
-    printf( "Hello %s!\n"
-            "This is character '%c', a hex number: %x and in decimal: %d\n"
-            "Padding test: '%8x', '%8d'\n",
-            "World", 'A', 32767, 32767, 0x7FFF, -123);
+void main() {
+  // set up serial console
+  uart_init();
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // test our printf implementation
+  printf("Hello %s!\n"
+         "This is character '%c', a hex number: %x and in decimal: %d\n"
+         "Padding test: '%8x', '%8d'\n",
+         "World", 'A', 32767, 32767, 0x7FFF, -123);
+
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

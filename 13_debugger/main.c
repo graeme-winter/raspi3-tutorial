@@ -23,19 +23,18 @@
  *
  */
 
-#include "uart.h"
 #include "dbg.h"
+#include "uart.h"
 
-void main()
-{
-    // set up serial console
-    uart_init();
+void main() {
+  // set up serial console
+  uart_init();
 
-    // test our debugger
-    breakpoint;
+  // test our debugger
+  breakpoint;
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

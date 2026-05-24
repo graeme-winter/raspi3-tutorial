@@ -23,35 +23,36 @@
  *
  */
 
-#include "uart.h"
 #include "mmu.h"
+#include "uart.h"
 
-#define KERNEL_UART0_DR        ((volatile unsigned int*)0xFFFFFFFFFFE00000)
-#define KERNEL_UART0_FR        ((volatile unsigned int*)0xFFFFFFFFFFE00018)
+#define KERNEL_UART0_DR ((volatile unsigned int *)0xFFFFFFFFFFE00000)
+#define KERNEL_UART0_FR ((volatile unsigned int *)0xFFFFFFFFFFE00018)
 
-void main()
-{
-    char *s="Writing through MMIO mapped in higher half!\r\n";
+void main() {
+  char *s = "Writing through MMIO mapped in higher half!\r\n";
 
-    // set up serial console
-    uart_init();
-    
-    // set up paging
-    mmu_init();
+  // set up serial console
+  uart_init();
 
-    // test mapping
-    uart_puts("Writing through identity mapped MMIO.\n");
+  // set up paging
+  mmu_init();
 
-    // test mapping
-    while(*s) {
-        /* wait until we can send */
-        do{asm volatile("nop");}while(*KERNEL_UART0_FR&0x20);
-        /* write the character to the buffer */
-        *KERNEL_UART0_DR=*s++;
-    }
+  // test mapping
+  uart_puts("Writing through identity mapped MMIO.\n");
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // test mapping
+  while (*s) {
+    /* wait until we can send */
+    do {
+      asm volatile("nop");
+    } while (*KERNEL_UART0_FR & 0x20);
+    /* write the character to the buffer */
+    *KERNEL_UART0_DR = *s++;
+  }
+
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

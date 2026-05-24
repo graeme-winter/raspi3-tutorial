@@ -25,22 +25,21 @@
 
 #include "uart.h"
 
-void main()
-{
-    unsigned long el;
+void main() {
+  unsigned long el;
 
-    // set up serial console
-    uart_init();
+  // set up serial console
+  uart_init();
 
-    // read the current level from system register
-    asm volatile ("mrs %0, CurrentEL" : "=r" (el));
+  // read the current level from system register
+  asm volatile("mrs %0, CurrentEL" : "=r"(el));
 
-    uart_puts("Current EL is: ");
-    uart_hex((el>>2)&3);
-    uart_puts("\n");
+  uart_puts("Current EL is: ");
+  uart_hex((el >> 2) & 3);
+  uart_puts("\n");
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

@@ -23,20 +23,19 @@
  *
  */
 
-#include "uart.h"
 #include "lfb.h"
+#include "uart.h"
 
-void main()
-{
-    // set up serial console and linear frame buffer
-    uart_init();
-    lfb_init();
+void main() {
+  // set up serial console and linear frame buffer
+  uart_init();
+  lfb_init();
 
-    // display a pixmap
-    lfb_showpicture();
+  // display a pixmap
+  lfb_showpicture();
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

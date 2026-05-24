@@ -23,28 +23,27 @@
  *
  */
 
-#include "uart.h"
 #include "sd.h"
+#include "uart.h"
 
 // get the end of bss segment from linker
 extern unsigned char _end;
 
-void main()
-{
-    // set up serial console
-    uart_init();
+void main() {
+  // set up serial console
+  uart_init();
 
-    // initialize EMMC and detect SD card type
-    if(sd_init()==SD_OK) {
-        // read the master boot record after our bss segment
-        if(sd_readblock(0,&_end,1)) {
-            // dump it to serial console
-            uart_dump(&_end);
-        }
+  // initialize EMMC and detect SD card type
+  if (sd_init() == SD_OK) {
+    // read the master boot record after our bss segment
+    if (sd_readblock(0, &_end, 1)) {
+      // dump it to serial console
+      uart_dump(&_end);
     }
+  }
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }

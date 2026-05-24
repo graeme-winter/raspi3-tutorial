@@ -23,8 +23,8 @@
  *
  */
 
-#include "uart.h"
 #include "sd.h"
+#include "uart.h"
 
 // get the end of bss segment from linker
 extern unsigned char _end;
@@ -33,30 +33,29 @@ extern unsigned char _end;
 // choose a sector which is unused by your partitions
 #define COUNTER_SECTOR 1
 
-void main()
-{
-    // use the last 4 bytes on the second sector as a boot counter
-    unsigned int *counter = (unsigned int*)(&_end + 508);
-    // set up serial console
-    uart_init();
+void main() {
+  // use the last 4 bytes on the second sector as a boot counter
+  unsigned int *counter = (unsigned int *)(&_end + 508);
+  // set up serial console
+  uart_init();
 
-    // initialize EMMC and detect SD card type
-    if(sd_init()==SD_OK) {
-        // read the second sector after our bss segment
-        if(sd_readblock(COUNTER_SECTOR,&_end,1)) {
-            // increase boot counter
-            (*counter)++;
-            // save the sector
-            if(sd_writeblock(&_end,COUNTER_SECTOR,1)) {
-                uart_puts("Boot counter ");
-                uart_hex(*counter);
-                uart_puts(" written to SD card.\n");
-            }
-        }
+  // initialize EMMC and detect SD card type
+  if (sd_init() == SD_OK) {
+    // read the second sector after our bss segment
+    if (sd_readblock(COUNTER_SECTOR, &_end, 1)) {
+      // increase boot counter
+      (*counter)++;
+      // save the sector
+      if (sd_writeblock(&_end, COUNTER_SECTOR, 1)) {
+        uart_puts("Boot counter ");
+        uart_hex(*counter);
+        uart_puts(" written to SD card.\n");
+      }
     }
+  }
 
-    // echo everything back
-    while(1) {
-        uart_send(uart_getc());
-    }
+  // echo everything back
+  while (1) {
+    uart_send(uart_getc());
+  }
 }
